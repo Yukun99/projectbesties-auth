@@ -21,11 +21,11 @@ function App() {
   useEffect(() => {
     if (location) {
       setPathname(location.pathname);
-      if (pathname === 'confirm') {
+      if (pathname === '/confirm') {
         setToken(qs.parse(location.search, {ignoreQueryPrefix: true}).token);
         setTokenId(qs.parse(location.search, {ignoreQueryPrefix: true}).tokenId);
       }
-      if (pathname === 'reset') {
+      if (pathname === '/reset') {
 
       }
     }
@@ -33,16 +33,17 @@ function App() {
 
   useEffect(() => {
     if (token !== '' && tokenId !== '') {
-      app.emailPasswordAuth.confirmUser(token, tokenId).then(r => {});
+      console.log('hi')
+      app.emailPasswordAuth.confirmUser(token, tokenId).then(r => {console.log(r)});
     }
-  })
+  });
 
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          You are currently on the {pathname} screen.
+          You are currently on the {pathname} screen. Token is {token} and TokenId is {tokenId}.
         </p>
       </header>
     </div>
