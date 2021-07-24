@@ -44,10 +44,6 @@ function App() {
     }
   });
 
-  useEffect(() => {
-
-  })
-
   async function resetPassword(password, token, tokenId) {
     setStatus('uploading');
     await app.emailPasswordAuth.resetPassword(token, tokenId, password)
@@ -158,7 +154,7 @@ function App() {
                                          className="App-formInput" />
               </label>
             </div>
-            <p></p>
+            <p/>
             <div>
               <button onClick={() => resetPassword(password, token, tokenId)}
                       disabled={disabled} className="App-button">Submit
